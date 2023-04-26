@@ -1,3 +1,5 @@
+import { CaretDown } from "phosphor-react";
+
 function Comentarios(){
     return(
         <div>
@@ -18,9 +20,8 @@ function Comentarios(){
                     <p>
                         Quer me deixar uma mensagem? Preencha este formulário.
                     </p>
-                    <p>
-                        Formulário de visitante
-                    </p>
+                    <p className="">
+                        Formulário de visitante                     </p>
                 </div>
            </div>
         </div>

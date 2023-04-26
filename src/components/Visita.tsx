@@ -1,9 +1,11 @@
-import { CaretLeft, CaretRight } from "phosphor-react"
+import { CaretDown, CaretLeft, CaretRight, CaretUp } from "phosphor-react"
 import { useState } from "react"
+import { Form } from "./Form"
 
 function Visita(){
     const [max, setMax] = useState(3)
     const [pag, setPag] = useState(1)
+    const [open, setOpen] = useState(false)
 
     function next(){
         if(pag == max){
@@ -32,15 +34,17 @@ function Visita(){
                          18 Abril 2023
                      </p>
                 </div>
-                <div className="ml-10 mt-1">
+                <div className="flex w-full gap-1 items-center justify-between">
                     <p>
                         Quer me deixar uma mensagem? Preencha este formulário.
                     </p>
-                    <p>
-                        Formulário de visitante
-                    </p>
+                    <button 
+                    onClick={() => setOpen(!open)}
+                    className="flex items-center bg-gray-600 px-1 py-1 gap-1">
+                        Formulário de visitante {open == false ? <CaretDown size={20}/> : <CaretUp size={20} /> }
+                    </button>
                 </div>
-                
+                <Form open={open} />
            </div>
 
             {/* comentarios */}
