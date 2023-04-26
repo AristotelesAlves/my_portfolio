@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { FormEvent, useState } from "react"
 import { ImgPerfil } from "./ImgPerfil"
 
 interface Iform{
@@ -10,15 +10,42 @@ function Form(props: Iform){
     const [img, setImg] = useState(' ')
     const [nome, setNome] = useState('')
     const [mensagem, setMensagem] = useState('')
+    const [contador, setContador] = useState(0)
+
+    const capturandoEventoDoTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const inputValue = event.target.value;
+        setMensagem(inputValue);
+        setContador(mensagem.length);
+      };
+
+    function Enviar(e: FormEvent){
+        e.preventDefault();
+        console.log(nome,mensagem)
+    }
 
     return(
-        <form className={`${props.open == false ? 'hidden': ' '} flex flex-col w-full`} action="">
-            <label>Nome</label>
-            <input type="text" name="" id="" />
-            <div className="w-full">
-                <button type="button" className="w-fit">
-                    Escolha uma foto de perfil
-                </button>
+        <form 
+          onSubmit={Enviar} 
+          className={`${props.open == false ? 'hidden': 'bg-gray-200'} flex flex-col w-full mt-5 gap-2  p-4 rounded-lg`} 
+          action=""
+        >
+
+            <label className="pl-2 font-semibold text-lg">
+                Nome
+            </label>
+
+            <input 
+              className="py-2 px-2 shadow-2xl rounded-lg mb-2"
+              maxLength={30}
+              type="text" 
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              placeholder="Seu nome completo"/>
+
+            <div className="w-full bg-gray-300 py-3 flex flex-col items-center rounded-2xl shadow-2xl">
+                <label className="pl-2 font-semibold text-lg">
+                    Foto de perfil
+                </label>
                 <div className="w-full h-[300px] p-5 flex-wrap gap-1 flex justify-center">
                     <button
                       type="button"
@@ -94,8 +121,31 @@ function Form(props: Iform){
 
                 </div>
             </div>
-            <label>Mensagem</label>
-            <textarea name="" id=""></textarea>
+
+            <label className="pl-2 font-semibold text-lg">
+                Mensagem
+            </label>
+
+            <textarea 
+              placeholder="Sua mensagem..."
+              className="py-1 px-2 shadow-2xl rounded-lg w-full h-[100px] resize-none"
+              maxLength={200}
+              value={mensagem}
+              onChange={capturandoEventoDoTextArea}
+            />
+            <p className="w-full px-1 flex gap-1 ">
+                caractéres restando:
+                <p className={`${contador > 150 ? 'text-red-500': '' }`}>
+                    {200 - contador} / 200
+                </p>
+            </p>
+            <div className="w-full flex justify-center items-center h-fit py-2">
+                <button
+                  className="bg-black py-2 px-3 text-xl text-white rounded-lg shadow-xl shadow-zinc-900/50"
+                  type="submit">
+                    Enviar formulario
+                </button>
+            </div>
         </form>
     )
 }

@@ -40,7 +40,7 @@ function Visita(){
                     </p>
                     <button 
                     onClick={() => setOpen(!open)}
-                    className="flex items-center bg-gray-600 px-1 py-1 gap-1">
+                    className="flex items-center px-1 py-1 gap-1 border-b-[2px] border-black hover:border-stone-900 hover:text-stone-900">
                         Formulário de visitante {open == false ? <CaretDown size={20}/> : <CaretUp size={20} /> }
                     </button>
                 </div>
