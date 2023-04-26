@@ -5,6 +5,7 @@ import { Post } from "./components/Post"
 function App() {
   
   return (
+    
     <div className="flex flex-col items-center w-full h-full">
       <Header/>
       <Nav/>
