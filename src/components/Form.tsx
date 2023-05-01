@@ -20,7 +20,10 @@ function Form(props: Iform){
 
     function Enviar(e: FormEvent){
         e.preventDefault();
-        console.log(nome,mensagem)
+        setImg('')
+        setNome('')
+        setMensagem('')
+        setContador(0)
     }
 
     return(

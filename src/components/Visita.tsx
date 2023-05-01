@@ -1,11 +1,27 @@
 import { CaretDown, CaretLeft, CaretRight, CaretUp } from "phosphor-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Form } from "./Form"
+import { Comentarios } from "./Comentarios"
+import { api } from "../services/api"
+
+interface Icomment{
+    id: string
+    name: string
+    image: string
+    instagram: string
+    message: string
+    data: string
+}
 
 function Visita(){
-    const [max, setMax] = useState(3)
+    const [allComments, setAllComments] = useState<Icomment[]>([])
     const [pag, setPag] = useState(1)
     const [open, setOpen] = useState(false)
+    const [comment , setComment] = useState<Icomment[]>([])
+
+    const qt = 3
+
+    const max = allComments.length % 2 == 0 ? allComments.length / qt : Math.round(allComments.length / qt)
 
     function next(){
         if(pag == max){
@@ -20,9 +36,19 @@ function Visita(){
         setPag(pag-1)
     }
 
+
+    useEffect(() => {
+        api.get(`/comments?pagina=${pag}&quantidade=${qt}`).then((response) => setComment(response.data))
+
+        api.get("/all-comments").then((response) => setAllComments(response.data))
+    })
+
+
+
+
     return(
-        <section className="w-[900px] mt-2 justify-center p-2">
-           <div className="px-4 hover:bg-gray-200  rounded-xl p-5">
+        <section className="w-[900px] mt-2 p-2 flex flex-col gap-5 items-center">
+           <div className="w-full px-4 bg-gray-200  rounded-xl p-5">
                 <div className="flex items-center h-fit gap-[10px] ">
                      <img 
                       className="w-[30px] h-[30px] rounded-full border-[4px] border-black"
@@ -45,9 +71,14 @@ function Visita(){
                     </button>
                 </div>
                 <Form open={open} />
-           </div>
+            </div>
 
-            {/* comentarios */}
+            {comment.map(r => {
+                return(
+                    <Comentarios data={r.data} image={r.image} instagram="dsf" message={r.message} name={r.name} key={r.id}/>
+                )
+            })}
+
 
             <nav className="flex gap-1 items-center h-fit w-full justify-center py-4">
                 <button onClick={back} disabled={pag == 1 ? true : false}>
