@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export function Post(){
     return(
-        <section className="w-[900px] mt-4 flex flex-col justify-center p-5 rounded-xl">
+        <section className="w-full mt-4 flex flex-col justify-center p-5 rounded-xl">
             <div className="hover:bg-gray-200 p-6 rounded-lg">
                 <div className="flex items-center h-fit gap-[10px]">
                     <img 
@@ -25,7 +25,7 @@ export function Post(){
                     </p>
                     <div className="flex justify-center w-full mt-4">
                         <img 
-                         className="w-[700px] h-[300px] rounded-xl"
+                         className="w-full h-[300px] rounded-xl"
                          src="https://media.licdn.com/dms/image/C4D22AQF1qNbDo6U_mg/feedshare-shrink_800/0/1678134479504?e=1685577600&v=beta&t=OtbLEQYc-JoDaBwKQ96HjLgtbpXYYk546qcpLEU8dOo" 
                          alt="" 
                         />

@@ -7,9 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        'linear_01': '#ff008e',
-        'linear_02': '#ffcd1e',
+        'linear_01': '#201D3A',
+        'linear_02': '#201D3A',
       },
+      backgroundImage:{
+        'banner': "url('./img/db-space-animation.gif')",
+      },
+      boxShadow:{
+        'innerShadow':'inset 0px 4px 4px rgba(0, 0, 0, 0.25)'
+      },
+      textShadow: {
+        'default': '3px 3px 210x rgba(0, 0, 0, 0.50)' // Aqui você pode personalizar a sombra do texto
+      }
     },
   },
   plugins: [],

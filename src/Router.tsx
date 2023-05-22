@@ -3,7 +3,7 @@ import { Home } from './pages/Home'
 import { Post } from './components/Post'
 import { Visita } from './components/Visita'
 import { ErroPage } from './components/ErroPage'
-import { Adm } from './pages/Adm'
+
 import { Sobre } from './components/Sobre'
 
 const router = createBrowserRouter([
@@ -30,11 +30,6 @@ const router = createBrowserRouter([
         path: '/1',
         element: <h1>Hello world</h1>
     },
-    {
-        path: '/admin',
-        element: <Adm/>,
-        errorElement: <ErroPage/>,
-    }
 ])
 
 export { router }

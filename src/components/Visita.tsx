@@ -47,7 +47,7 @@ function Visita(){
 
 
     return(
-        <section className="w-[900px] mt-2 p-2 flex flex-col gap-5 items-center">
+        <section className="w-full mt-2 px-5 flex flex-col gap-5 items-center">
            <div className="w-full px-4 bg-gray-200  rounded-xl p-5">
                 <div className="flex items-center h-fit gap-[10px] ">
                      <img 
