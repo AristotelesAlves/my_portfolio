@@ -1,8 +1,9 @@
-import { CaretDown, CaretLeft, CaretRight, CaretUp } from "phosphor-react"
+import { CaretLeft, CaretRight } from "phosphor-react"
 import { useEffect, useState } from "react"
-import { Form } from "./Form"
+
 import { Comentarios } from "./Comentarios"
 import { api } from "../services/api"
+import { LoadingComentarios } from "./LoadingComentarios"
 
 interface Icomment{
     id: string
@@ -16,10 +17,9 @@ interface Icomment{
 function Visita(){
     const [allComments, setAllComments] = useState<Icomment[]>([])
     const [pag, setPag] = useState(1)
-    const [open, setOpen] = useState(false)
     const [comment , setComment] = useState<Icomment[]>([])
 
-    const qt = 3
+    const qt = 4
 
     const max = allComments.length % 2 == 0 ? allComments.length / qt : Math.round(allComments.length / qt)
 
@@ -43,57 +43,45 @@ function Visita(){
         api.get("/all-comments").then((response) => setAllComments(response.data))
     })
 
-
-
-
     return(
         <section className="w-full mt-2 px-5 flex flex-col gap-5 items-center">
-           <div className="w-full px-4 bg-gray-200  rounded-xl p-5">
-                <div className="flex items-center h-fit gap-[10px] ">
-                     <img 
-                      className="w-[30px] h-[30px] rounded-full border-[4px] border-black"
-                      src="https://avatars.githubusercontent.com/u/103201579?v=4" 
-                      alt=""
-                     />
-                     <strong>Aristóteles Alves</strong>
-                     <p className="text-sm text-gray-800">
-                         18 Abril 2023
-                     </p>
-                </div>
-                <div className="flex w-full gap-1 items-center justify-between">
-                    <p>
-                        Quer me deixar uma mensagem? Preencha este formulário.
-                    </p>
-                    <button 
-                    onClick={() => setOpen(!open)}
-                    className="flex items-center px-1 py-1 gap-1 border-b-[2px] border-black hover:border-stone-900 hover:text-stone-900">
-                        Formulário de visitante {open == false ? <CaretDown size={20}/> : <CaretUp size={20} /> }
-                    </button>
-                </div>
-                <Form open={open} />
+
+            <div className="bg-white rounded-xl w-full p-10 shadow-innerShadow  gap-5">
+
+            <div className="flex flex-col gap-5">
+            {comment.length > 0 ? (
+                comment.map(r => {
+                    return(
+                        <Comentarios data={r.data} image={r.image} message={r.message} name={r.name} key={r.id}/>
+                    )
+                })):(<LoadingComentarios/>
+                )
+            }
             </div>
 
-            {comment.map(r => {
-                return(
-                    <Comentarios data={r.data} image={r.image} instagram="dsf" message={r.message} name={r.name} key={r.id}/>
-                )
-            })}
+                
 
-
-            <nav className="flex gap-1 items-center h-fit w-full justify-center py-4">
-                <button onClick={back} disabled={pag == 1 ? true : false}>
-                    <CaretLeft 
-                    className={`${pag == 1 ? 'text-gray-700' : 'false'} active:text-gray-800`}
-                    size={25} />
-                </button>
-                <p>{pag} / {max}</p>
-                <button onClick={next} disabled={pag == max ? true : false}>
-                    <CaretRight 
-                    className={`${pag == max ? 'text-gray-700' : 'false'} active:text-gray-800`}
-                    size={25}/>
-                </button>
-            </nav>
+                <nav className="flex gap-1 items-center h-fit w-full justify-center py-4">
+                    <button onClick={back} disabled={pag == 1 ? true : false}>
+                        <CaretLeft 
+                        className={`${pag == 1 ? 'text-gray-700' : 'false'} active:text-gray-800`}
+                        size={25} />
+                    </button>
+                    <p>{pag} / {max}</p>
+                    <button onClick={next} disabled={pag == max ? true : false}>
+                        <CaretRight 
+                        className={`${pag == max ? 'text-gray-700' : 'false'} active:text-gray-800`}
+                        size={25}/>
+                    </button>
+                </nav>
+            </div>
             
+            <div className="w-[50%] m-auto bg-white rounded-lg shadow-innerShadow">
+                <a href="/form/formulario-de-visita"
+                    className="flex justify-center items-center w-full h-full py-2 text-base font-semibold ">
+                        Deixe sua mensagem!
+                </a>
+            </div> 
         </section>
     )
 }

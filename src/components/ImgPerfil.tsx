@@ -8,7 +8,7 @@ interface IperfilImg{
 function ImgPerfil(props: IperfilImg){
 
     return <img 
-              className={`w-[130px] h-[130px] rounded-full border-[4px] ${props.click == props.img ? 'border-red-500': ''}`}
+              className={`w-[80px] h-[80px] rounded-full border-[4px] ${props.click == props.img ? 'border-green-500': ''}`}
               src={props.img}
               alt=""
             />

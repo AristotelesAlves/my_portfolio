@@ -5,6 +5,7 @@ import { Visita } from './components/Visita'
 import { ErroPage } from './components/ErroPage'
 
 import { Sobre } from './components/Sobre'
+import { Form } from './components/Form'
 
 const router = createBrowserRouter([
     { 
@@ -18,17 +19,17 @@ const router = createBrowserRouter([
             },
             {
                 path: "/visita",
-                element: <Visita/>
+                element: <Visita/>,            
             },
             {
                 path: "/sobre",
                 element: <Sobre/>
+            },
+            {
+                path: "/form/formulario-de-visita",
+                element: <Form/>
             }
         ]
-    },
-    { 
-        path: '/1',
-        element: <h1>Hello world</h1>
     },
 ])
 

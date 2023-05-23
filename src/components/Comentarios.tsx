@@ -1,31 +1,36 @@
-import { CaretDown } from "phosphor-react";
+
+
 
 interface Icomentarios{
     name: string
     image: string
-    instagram: string
     message: string
     data: string
 }
 
 function Comentarios(props: Icomentarios){
     return(
-        <div className="w-full px-4 bg-gray-200 rounded-xl p-5">
-            <div className="flex items-center h-fit gap-[10px] ">
-                <img 
-                 className="w-[30px] h-[30px] rounded-full border-[4px] border-black"
-                 src={props.image} 
-                 alt=""
-                />
-                <strong>{props.name}</strong>
-                <p className="text-sm text-gray-800">
-                    {props.data}
-                </p>
-            </div>
-            <div className="break-words	px-4 ml-6">
-                <p>
-                {props.message}
-                </p>
+        <div className="w-full flex flex-col ">
+
+            <div className="bg-gray-200 px-4 p-3 rounded-xl shadow-2xl">
+                <div className="flex h-fit items-center gap-2 ">
+                    <img 
+                      className="h-[40px] w-[40px] bg-white rounded-full border-2 border-gray-400 "
+                      src={props.image} 
+                      alt=""
+                    />
+                    <div className="flex items-center w-full h-6 gap-2 mb-2">
+                        <p className="font-bold text-lg">
+                            {props.name}
+                        </p>{/* name */}
+                        <ul className="font-light text-sm flex items-center list-disc ml-5 text-gray-500">
+                            <li>{props.data}</li>
+                        </ul>{/* data */}
+                    </div>
+                </div>
+                <p className="w-fit ml-[46px] h-6 ">
+                    {props.message}
+                </p>{/* mensagem */}
             </div>
         </div>
     )
