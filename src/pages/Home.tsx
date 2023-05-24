@@ -7,7 +7,7 @@ import { Footer } from "../components/Footer"
 
 function Home(){
     return(
-        <div className="w-full h-full flex flex-col items-center px-64 bg-slate-600 max-xl:px-0">
+        <div className="w-full h-full flex flex-col shadow-2xl items-center px-64 bg-slate-600 max-xl:px-32">
             <Header/>
             <div className="w-full h-full bg-gradient-to-r from-linear_01 to-linear_02">
                 <Nav/>
