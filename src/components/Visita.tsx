@@ -44,11 +44,11 @@ function Visita(){
     })
 
     return(
-        <section className="w-full mt-2 px-5 flex flex-col gap-5 items-center">
+        <section className="w-full mt-2 flex flex-col gap-5 items-center py-2 px-6">
 
             <div className="bg-white rounded-xl w-full p-10 shadow-innerShadow  gap-5">
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 w-full">
             {comment.length > 0 ? (
                 comment.map(r => {
                     return(
