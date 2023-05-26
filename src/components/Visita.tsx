@@ -38,9 +38,11 @@ function Visita(){
 
 
     useEffect(() => {
+        
+        api.get("/all-comments").then((response) => setAllComments(response.data))
+
         api.get(`/comments?pagina=${pag}&quantidade=${qt}`).then((response) => setComment(response.data))
 
-        api.get("/all-comments").then((response) => setAllComments(response.data))
     })
 
     return(
@@ -77,7 +79,7 @@ function Visita(){
             </div>
             
             <div className="w-[50%] m-auto bg-white rounded-lg shadow-innerShadow">
-                <a href="/form/formulario-de-visita"
+                <a href="/form"
                     className="flex justify-center items-center w-full h-full py-2 text-base font-semibold hover:opacity-50">
                         Deixe sua mensagem!
                 </a>

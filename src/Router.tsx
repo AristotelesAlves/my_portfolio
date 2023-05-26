@@ -26,7 +26,7 @@ const router = createBrowserRouter([
                 element: <Sobre/>
             },
             {
-                path: "/form/formulario-de-visita",
+                path: "/form",
                 element: <Form/>
             }
         ]

@@ -8,7 +8,7 @@ function Form(){
     const [img, setImg] = useState(' ')
     const [nome, setNome] = useState('')
     const [mensagem, setMensagem] = useState('')
-    const [contador, setContador] = useState(1)
+    const [contador, setContador] = useState(0)
 
     const capturandoEventoDoTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const inputValue = event.target.value;
@@ -31,6 +31,9 @@ function Form(){
           action=""
           className="w-full mt-2 px-5 flex flex-col gap-5 items-center"
         >
+          <div className="absolute bg-green-500 w-fit h-fit px-2 py-1 top-3 right-0">
+            Mensagem Enviada com sucesso!
+          </div>
           <div className={`flex flex-col w-full mt-5 gap-2  p-4 rounded-lg bg-white`}>
             <div className="flex">
               <h1 className="m-auto font-bold text-2xl spacing tracking-widest		">
