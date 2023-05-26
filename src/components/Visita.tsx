@@ -78,7 +78,7 @@ function Visita(){
             
             <div className="w-[50%] m-auto bg-white rounded-lg shadow-innerShadow">
                 <a href="/form/formulario-de-visita"
-                    className="flex justify-center items-center w-full h-full py-2 text-base font-semibold ">
+                    className="flex justify-center items-center w-full h-full py-2 text-base font-semibold hover:opacity-50">
                         Deixe sua mensagem!
                 </a>
             </div> 

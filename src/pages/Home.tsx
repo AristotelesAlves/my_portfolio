@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useParams } from "react-router-dom"
 import { Header } from "../components/Header"
 import { Nav } from "../components/Nav"
 import { Footer } from "../components/Footer"
@@ -6,6 +6,10 @@ import { Footer } from "../components/Footer"
 
 
 function Home(){
+
+    const { slug } = useParams();
+    console.log(slug)
+
     return(
         <div className="w-full h-full flex flex-col shadow-2xl items-center px-64 bg-slate-600 max-xl:px-32">
             <Header/>

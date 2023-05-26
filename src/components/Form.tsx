@@ -8,7 +8,7 @@ function Form(){
     const [img, setImg] = useState(' ')
     const [nome, setNome] = useState('')
     const [mensagem, setMensagem] = useState('')
-    const [contador, setContador] = useState(0)
+    const [contador, setContador] = useState(1)
 
     const capturandoEventoDoTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const inputValue = event.target.value;
@@ -18,6 +18,7 @@ function Form(){
 
     function Enviar(e: FormEvent){
         e.preventDefault();
+        console.log(img,nome,mensagem)
         setImg('')
         setNome('')
         setMensagem('')
@@ -35,7 +36,7 @@ function Form(){
               <h1 className="m-auto font-bold text-2xl spacing tracking-widest		">
                 Formulario de visitante
               </h1>
-              <a href="/visita">
+              <a className="hover:opacity-50" href="/visita">
                 <XCircle size={35} />
               </a>
             </div>
@@ -129,15 +130,15 @@ function Form(){
               onChange={capturandoEventoDoTextArea}
             />
             <p className="w-full px-1 flex gap-1 ">
-                caractéres restando:
+                Caractéres restando:
                 <p className={`${contador > 150 ? 'text-red-500': '' }`}>
-                    {200 - contador} / 200
+                    {contador} / 200
                 </p>
             </p>
           </div>
           <div className="w-[50%] m-auto bg-white rounded-lg shadow-innerShadow">
               <button
-                className="flex justify-center items-center w-full h-full py-2 text-base font-semibold "
+                className="flex justify-center items-center w-full h-full py-2 text-base font-semibold hover:opacity-50"
                 type="submit">
                   Enviar formulario
               </button>

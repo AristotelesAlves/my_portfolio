@@ -1,4 +1,5 @@
 import { Download, DownloadSimple } from "phosphor-react"
+import curriculo from '../pdf/Curriculo - Aristóteles Alves.pdf'
 
 function Sobre(){
     return(
@@ -11,7 +12,7 @@ function Sobre(){
                       alt="" />
                     <a 
                       className="bg-roxoPR px-4 py-2 rounded-lg text-white shadow-xl flex items-center gap-2 hover:opacity-90"
-                      href="">
+                      href={curriculo} download>
                         Meu curriculo
                         <DownloadSimple/>
                     </a>
@@ -48,6 +49,9 @@ function Sobre(){
                             </li>
                             <li className="px-1 border-b-2 border-roxoPR shadow-buttonShadow ">
                                 Node.js
+                            </li>
+                            <li className="px-1 border-b-2 border-roxoPR shadow-buttonShadow ">
+                                Express
                             </li>
                             <li className="px-1 border-b-2 border-roxoPR shadow-buttonShadow ">
                                 SQLite
