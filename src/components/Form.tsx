@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react"
 import { ImgPerfil } from "./ImgPerfil"
 import { XCircle } from "phosphor-react"
+import { api } from "../services/api"
 
 
 function Form(){
@@ -9,6 +10,8 @@ function Form(){
     const [nome, setNome] = useState('')
     const [mensagem, setMensagem] = useState('')
     const [contador, setContador] = useState(0)
+    const [errorForm, setErrorForm] = useState('')
+    const [enviado, setEnviado] = useState(false)
 
     const capturandoEventoDoTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const inputValue = event.target.value;
@@ -18,7 +21,28 @@ function Form(){
 
     function Enviar(e: FormEvent){
         e.preventDefault();
-        console.log(img,nome,mensagem)
+
+        if(nome.length == 0){
+          setErrorForm('Digite seu nome!')
+          return
+        }
+        if(img.length == 0){
+          setErrorForm('Escolha uma foto de perfil!')
+          return
+        }
+        if(mensagem.length == 0){
+          setErrorForm('Escreva uma mensagem!')
+          return
+        }
+        setErrorForm('')
+
+        api.post('/comment', {
+          name: nome,
+          message: mensagem,
+          image: img,
+          instagram: ''
+        })
+
         setImg('')
         setNome('')
         setMensagem('')
@@ -31,9 +55,18 @@ function Form(){
           action=""
           className="w-full mt-2 px-5 flex flex-col gap-5 items-center"
         >
-          <div className="absolute bg-green-500 w-fit h-fit px-2 py-1 top-3 right-0">
-            Mensagem Enviada com sucesso!
+          
+          <div className={`fixed ${errorForm.length > 0 ? 'bg-red-800': 'bg-green-500'}  w-fit h-11 pr-2 rounded-l-xl top-3  flex  right-0 gap-2 items-center overflow-hidden ${enviado == false ? 'opacity-0 hidden':'opacity-100 '} transition-opacity shadow-xl text-white`}>
+
+            <button className={`${errorForm.length > 0 ? 'bg-red-800': 'bg-green-800'} h-full w-8 flex items-center justify-center shadow-xl`}
+              onClick={() => setEnviado(false)}
+              >
+              <XCircle size={20}/>
+            </button>
+
+            {errorForm.length > 0 ? errorForm :'Mensagem Enviada com sucesso!'}
           </div>
+
           <div className={`flex flex-col w-full mt-5 gap-2  p-4 rounded-lg bg-white`}>
             <div className="flex">
               <h1 className="m-auto font-bold text-2xl spacing tracking-widest		">
@@ -141,6 +174,7 @@ function Form(){
           </div>
           <div className="w-[50%] m-auto bg-white rounded-lg shadow-innerShadow">
               <button
+                onClick={() => setEnviado(true)}
                 className="flex justify-center items-center w-full h-full py-2 text-base font-semibold hover:opacity-50"
                 type="submit">
                   Enviar formulario

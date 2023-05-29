@@ -4,7 +4,7 @@ import banner from '../img/db-space-animation.gif'
 
 export function Header(){
     return(
-        <header className="w-full h-[350px] bg-banner bg-cover flex flex-col justify-end">
+        <header className="w-full h-[400px] bg-banner  bg-cover flex flex-col justify-end">
             <section className="bg-white rounded-t-[100px] flex  flex-col items-center h-[200px]">
                 <div className="-mt-[75px] flex flex-col gap-3">
                     <div className="flex gap-2">
