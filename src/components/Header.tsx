@@ -24,9 +24,9 @@ export function Header(){
                     </div>
     
       
-                    <div className="max-md:text-xs max-md:px-4 ">
+                    <div className="max-md:text-sm max-md:px-4 max-md:text-center ">
                         <p>Não é a linguagem de programação que define o programador, mas sim sua lógica.</p>
-                        <p>
+                        <p className="max-sm:text-[8px] max-md:m-1">
                             Desenvolvedor fullstack. Universitário Unifap-CE. Estudante Rocketseat. Amante da tecnologia
                         </p>
                     </div>
