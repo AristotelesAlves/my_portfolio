@@ -10,7 +10,7 @@ export function Header(){
                     <div className="flex max-md:flex-col max-md:items-center gap-2">
                         <img
                           className="rounded-full w-[150px] shadow-innerShadow border-4 border-gray-300" 
-                          src="https://i.pinimg.com/564x/2e/be/8c/2ebe8c261bafb537d8d4ad76cd59b3db.jpg" 
+                          src="https://i.pinimg.com/564x/93/a0/dd/93a0dd47cab45363ef2a0a697c4d9538.jpg" 
                           alt="" 
                         />
                         <div className="w-full flex flex-col justify-end max-md:text-center pb-1">
