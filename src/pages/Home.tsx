@@ -1,22 +1,47 @@
 import { Outlet, useParams } from "react-router-dom"
 import { Header } from "../components/Header"
 import { Nav } from "../components/Nav"
-import { Footer } from "../components/Footer"
+import { GithubLogo, InstagramLogo, LinkedinLogo, WhatsappLogo } from "phosphor-react";
 
 
 
 function Home(){
-
-    const { slug } = useParams();
-    console.log(slug)
 
     return(
         <div className="w-full h-full flex flex-col shadow-2xl items-center px-64 bg-zinc-800 max-xl:px-28 max-md:px-0">
             <Header/>
             <div className="w-full h-full bg-gradient-to-r from-linear_01 to-linear_02">
                 <Nav/>
+                
                 <Outlet/>
-                <Footer/>
+
+                <footer className="flex justify-center items-center p-5 flex-col gap-3 text-white">
+                    <ul className="flex gap-4">
+                        <li className="hover:bg-gray-100 hover:bg-opacity-20 rounded-lg p-1">
+                            <a href="https://www.instagram.com/aristoteles269/">
+                                <InstagramLogo size={32} />
+                            </a>
+                        </li>
+                        <li className="hover:bg-gray-100 hover:bg-opacity-20 rounded-lg p-1">
+                            <a href="https://www.linkedin.com/in/aristoteles-aleves-de-oliveira-ab8089226/">
+                                <LinkedinLogo size={32} />
+                            </a>
+                        </li>
+                        <li className="hover:bg-gray-100 hover:bg-opacity-20 rounded-lg p-1">
+                            <a href="https://github.com/AristotelesAlves">
+                                <GithubLogo size={32} />
+                            </a>
+                        </li>
+                        <li className="hover:bg-gray-100 hover:bg-opacity-20 rounded-lg p-1">
+                            <a href="https://wa.me/+5587981152947">
+                                <WhatsappLogo size={32} />
+                            </a>
+                        </li>
+                    </ul>
+                    <p>
+                        Aristóteles © 2023
+                    </p>
+                </footer>
             </div>
         </div>
     )

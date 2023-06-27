@@ -18,6 +18,10 @@ const router = createBrowserRouter([
                 element: <Post/>
             },
             {
+                path: "/form",
+                element: <Form/>
+            },
+            {
                 path: "/visita",
                 element: <Visita/>,            
             },
@@ -25,10 +29,7 @@ const router = createBrowserRouter([
                 path: "/sobre",
                 element: <Sobre/>
             },
-            {
-                path: "/form",
-                element: <Form/>
-            }
+            
         ]
     },
 ])

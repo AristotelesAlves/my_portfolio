@@ -5,7 +5,7 @@ import banner from '../img/db-space-animation.gif'
 export function Header(){
     return(
         <header className="w-full h-[400px] bg-banner  bg-cover flex flex-col justify-end">
-            <section className="bg-white rounded-t-[100px] flex  flex-col items-center h-[200px] max-md:h-fit max-md:pb-2">
+            <section className="bg-white rounded-t-[100px] max-md:rounded-t-[80px] flex  flex-col items-center h-[200px] max-md:h-fit max-md:pb-2">
                 <div className="-mt-[75px] flex flex-col gap-3">
                     <div className="flex max-md:flex-col max-md:items-center gap-2">
                         <img
@@ -24,11 +24,13 @@ export function Header(){
                     </div>
     
       
-                    <div className="max-md:text-sm max-md:px-2">
+                    <div className="max-md:text-xs max-md:px-4 ">
                         <p>Não é a linguagem de programação que define o programador, mas sim sua lógica.</p>
-                        <p>Desenvolvedor fullstack. Universitário Unifap-CE. Estudante Rocketseat. Amante da tecnologia</p>
+                        <p>
+                            Desenvolvedor fullstack. Universitário Unifap-CE. Estudante Rocketseat. Amante da tecnologia
+                        </p>
                     </div>
-                    <ul className="flex gap-4 text-sm max-md:text-xs  text-gray-800">
+                    <ul className="flex gap-4 text-sm max-md:text-xs max-md:font-light max-md:mb-1 max-md:px-4  text-gray-800">
                         <li className="flex h-fit items-center gap-1">
                             <UserCircle size={25} />
                             Disponível
@@ -43,10 +45,10 @@ export function Header(){
                             <Cake size={25}/>
                             27 Setembro
                         </li>
-                        <li className="flex h-fit items-center gap-1">
+                        {/* <li className="flex h-fit items-center gap-1">
                             <Calendar size={25}/>
                             Inscreveu-se em jan 2023
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </section>
