@@ -12,13 +12,12 @@ function Home(){
 
     return(
         <div className="w-full h-full flex flex-col shadow-2xl items-center px-64 bg-zinc-800 max-xl:px-28 max-md:px-0">
-            {/* <Header/>
+            <Header/>
             <div className="w-full h-full bg-gradient-to-r from-linear_01 to-linear_02">
                 <Nav/>
                 <Outlet/>
                 <Footer/>
-            </div> */}
-            <h1> RESETANDO </h1>
+            </div>
         </div>
     )
 }
