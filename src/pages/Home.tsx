@@ -11,7 +11,7 @@ function Home(){
     console.log(slug)
 
     return(
-        <div className="w-full h-full flex flex-col shadow-2xl items-center px-64 bg-slate-600 max-xl:px-32">
+        <div className="w-full h-full flex flex-col shadow-2xl items-center px-64 bg-zinc-800 max-xl:px-28 max-md:px-0">
             <Header/>
             <div className="w-full h-full bg-gradient-to-r from-linear_01 to-linear_02">
                 <Nav/>

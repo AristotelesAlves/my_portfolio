@@ -8,7 +8,7 @@ function Sobre(){
                 <div className="flex flex-col items-center gap-3">
                     <img 
                       className="w-[250px] h-[300px] rounded-lg shadow-xl"
-                      src="https://scontent.fjdo10-2.fna.fbcdn.net/v/t1.6435-9/205338746_2893516304203566_1129989364437748139_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGZb5WV9W3zQlxmiLfB42kDy9WUy9ZZVffL1ZTL1llV95tbl301KBVd56LU9EiY7LRlwxQd2lSVpa6Zh-m1r6Sr&_nc_ohc=iq2tSV2UF64AX82BheT&_nc_ht=scontent.fjdo10-2.fna&oh=00_AfDr1LxZQiWDoG-fbvhgixBbjdsB2nrZkO8DXkOQQW1zGw&oe=6495AB42" 
+                      src="https://i.pinimg.com/564x/a5/ea/85/a5ea858110ab762837e04fd4359030de.jpg" 
                       alt="" />
                     <a 
                       className="bg-roxoPR px-4 py-2 rounded-lg text-white shadow-xl flex items-center gap-2 hover:opacity-90"
