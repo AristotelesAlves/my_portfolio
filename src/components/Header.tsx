@@ -24,10 +24,10 @@ export function Header(){
                     </div>
     
       
-                    <div className="max-md:text-sm max-md:px-4 max-md:text-center ">
+                    <div className="max-md:text-sm max-md:px-4">
                         <p>Não é a linguagem de programação que define o programador, mas sim sua lógica.</p>
-                        <p className="max-sm:text-[8px] max-md:m-1">
-                            Desenvolvedor fullstack. Universitário Unifap-CE. Estudante Rocketseat. Amante da tecnologia
+                        <p className="max-sm:text-[10px] max-md:mt-1">
+                            Desenvolvedor fullstack. Universitário Unifap-CE. Estudante Rocketseat.
                         </p>
                     </div>
                     <ul className="flex gap-4 text-sm max-md:text-xs max-md:font-light max-md:mb-1 max-md:px-4  text-gray-800">

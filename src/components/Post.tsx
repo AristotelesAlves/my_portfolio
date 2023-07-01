@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { api } from "../services/api"
 import { LoadingPost } from "./LoadingPost";
-import { Code, Globe } from "phosphor-react";
+import { Code, Globe, Heart } from "phosphor-react";
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
@@ -17,7 +17,14 @@ export function Post(){
 
     const [post, setPost] = useState<Ipost[]>([])
 
+    const [heart, setHeart] = useState(false)
+
+    function eventHeartClick(){
+            heart == false ? [localStorage.setItem('curtida','sim'), setHeart(true)] : [localStorage.removeItem('curtida'), setHeart(false)]
+    }
+
     useEffect(() => {
+        localStorage.getItem('curtida') == 'sim' ? setHeart(true) : setHeart(false)
         api.get('/post').then((response) => setPost(response.data))
     },[])
 
@@ -30,33 +37,38 @@ export function Post(){
                     const FormatDate = format(data, 'dd MMMM yyyy', { locale: ptBR });
 
                     return(
-                        <div className="bg-white rounded-xl p-4 shadow-innerShadow gap-5 w-full">
+                        <div className="bg-white rounded-xl py-4 px-5 shadow-innerShadow gap-5 w-full">
                             <img  
-                              className="w-full h-[300px]"
+                              className=""
                               src={r.img}
                             />
                             <div className="flex mt-3">
                                 <img 
                                   className="h-[50px] w-[50px] rounded-full border-2 border-gray-400"
-                                  src="https://scontent.fjdo10-1.fna.fbcdn.net/v/t1.6435-9/147433312_2802841209937743_5338152885317310999_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeFVx__5GZCbqXcRrJK8Ie2nPERwjPgbBQE8RHCM-BsFAS_LOYekjtvt5ZmQo23Gkkut_lELvJuNDYVBB12uByvz&_nc_ohc=BJWl6RQNRL0AX-PMXEq&_nc_ht=scontent.fjdo10-1.fna&oh=00_AfBRCBJf3FpaWMBMBQS68LiUTA22uLsStSZ9NgZQJ2o-GQ&oe=649853E9"
+                                  src="https://i.pinimg.com/564x/93/a0/dd/93a0dd47cab45363ef2a0a697c4d9538.jpg"
                                 />
                                 <div className="flex flex-col px-3">
-                                    <div className="flex justify-between py-2 items-center mt-1">
-                                        <p className="font-bold">
-                                            Aristóteles Alves
-                                        </p>
-                                        <p className="font-light text-sm">
-                                            {FormatDate}
-                                        </p>
+                                    <div className="flex py-2 justify-between items-center mt-1">
+                                        <div className="flex items-center">
+                                            <p className="font-bold">
+                                                Aristóteles Alves
+                                            </p>
+                                            <p className="font-light text-sm ml-2 text-zinc-600">
+                                             • {FormatDate}
+                                            </p>
+                                        </div>
+                                        <button onClick={eventHeartClick}>
+                                            {heart == false ? <Heart size={30} /> : <Heart size={30} color="#d00606" weight="fill" />}
+                                        </button>
                                     </div>
                                     <p className="">
                                         {r.bio}
                                     </p>
-                                    <div className="flex justify-end gap-6">
-                                        <a className="flex items-center gap-1  hover:opacity-50" href="">
+                                    <div className="flex justify-end gap-6 mt-2">
+                                        <a className="flex items-center gap-1  hover:opacity-50" href={r.code}>
                                             <Code size={22} /> Código
                                         </a>
-                                        <a className="flex items-center gap-1  hover:opacity-50" href="">
+                                        <a className="flex items-center gap-1  hover:opacity-50" href={r.demo}>
                                             <Globe size={22} /> Demo
                                         </a>
                                     </div>
