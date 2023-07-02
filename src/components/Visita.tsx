@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 
 import { Comentarios } from "./Comentarios"
 import { api } from "../services/api"
-import { LoadingComentarios } from "./LoadingComentarios"
 
 interface Icomment{
     id: string
@@ -49,41 +48,39 @@ function Visita(){
         <section className="w-full mt-2 flex flex-col gap-5 items-center py-2 px-6">
 
             <div className="bg-white rounded-xl w-full p-10 shadow-innerShadow  gap-5">
-
-            <div className="flex flex-col gap-5 w-full">
-            {comment.length > 0 ? (
-                comment.map(r => {
-                    return(
-                        <Comentarios data={r.data} image={r.image} message={r.message} name={r.name} key={r.id}/>
+                {/* <div className="flex flex-col gap-5 w-full">
+                {comment.length > 0 ? (
+                    comment.map(r => {
+                        return(
+                            <Comentarios data={r.data} image={r.image} message={r.message} name={r.name} key={r.id}/>
+                        )
+                    })):(<LoadingComentarios/>
                     )
-                })):(<LoadingComentarios/>
-                )
-            }
-            </div>
+                }
+                </div>
+                    <nav className="flex gap-1 items-center h-fit w-full justify-center py-4">
+                        <button onClick={back} disabled={pag == 1 ? true : false}>
+                            <CaretLeft 
+                            className={`${pag == 1 ? 'text-gray-700' : 'false'} active:text-gray-800`}
+                            size={25} />
+                        </button>
+                        <p>{pag} / {max}</p>
+                        <button onClick={next} disabled={pag == max ? true : false}>
+                            <CaretRight 
+                            className={`${pag == max ? 'text-gray-700' : 'false'} active:text-gray-800`}
+                            size={25}/>
+                        </button>
+                    </nav>
+                </div>
 
-                
-
-                <nav className="flex gap-1 items-center h-fit w-full justify-center py-4">
-                    <button onClick={back} disabled={pag == 1 ? true : false}>
-                        <CaretLeft 
-                        className={`${pag == 1 ? 'text-gray-700' : 'false'} active:text-gray-800`}
-                        size={25} />
-                    </button>
-                    <p>{pag} / {max}</p>
-                    <button onClick={next} disabled={pag == max ? true : false}>
-                        <CaretRight 
-                        className={`${pag == max ? 'text-gray-700' : 'false'} active:text-gray-800`}
-                        size={25}/>
-                    </button>
-                </nav>
-            </div>
-            
-            <div className="w-[50%] m-auto bg-white rounded-lg shadow-innerShadow">
-                <a href="/form"
-                    className="flex justify-center items-center w-full h-full py-2 text-base font-semibold hover:opacity-50">
-                        Deixe sua mensagem!
-                </a>
-            </div> 
+                <div className="w-[50%] m-auto bg-white rounded-lg shadow-innerShadow">
+                    <a href="/form"
+                        className="flex justify-center items-center w-full h-full py-2 text-base font-semibold hover:opacity-50">
+                            Deixe sua mensagem!
+                    </a>
+                </div>
+            */}
+            </div>  
         </section>
     )
 }
