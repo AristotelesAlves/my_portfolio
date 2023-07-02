@@ -16,7 +16,6 @@ interface Ipost{
 export function Post(){
 
     const [post, setPost] = useState<Ipost[]>([])
-
     const [heart, setHeart] = useState(false)
 
     function eventHeartClick(){
@@ -43,15 +42,15 @@ export function Post(){
                               src={r.img}
                             />
                             <div className="flex mt-3">
-                                <img 
-                                  className="h-[50px] w-[50px] rounded-full border-2 border-gray-400"
-                                  src="https://i.pinimg.com/564x/93/a0/dd/93a0dd47cab45363ef2a0a697c4d9538.jpg"
-                                />
                                 <div className="flex flex-col px-3">
                                     <div className="flex py-2 justify-between items-center mt-1">
                                         <div className="flex items-center">
+                                            <img 
+                                              className="h-[40px] w-[40px] rounded-full border-2 border-gray-400 mr-1"
+                                              src="https://i.pinimg.com/564x/93/a0/dd/93a0dd47cab45363ef2a0a697c4d9538.jpg"
+                                            /> 
                                             <p className="font-bold">
-                                                Aristóteles Alves
+                                                Aristóteles
                                             </p>
                                             <p className="font-light text-sm ml-2 text-zinc-600">
                                              • {FormatDate}

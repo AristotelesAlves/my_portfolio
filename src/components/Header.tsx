@@ -30,13 +30,13 @@ export function Header(){
                             Desenvolvedor fullstack. Universitário Unifap-CE. Estudante Rocketseat.
                         </p>
                     </div>
-                    <ul className="flex gap-4 text-sm max-md:text-xs max-md:font-light max-md:mb-1 max-md:px-4  text-gray-800">
+                    <ul className="flex gap-4 text-sm max-md:text-xs max-md:font-light max-md:mb-1 max-md:px-4  ">
                         <li className="flex h-fit items-center gap-1">
                             <UserCircle size={25} />
                             Disponível
                         </li>
                         <li className="flex h-fit items-center gap-1 hover:opacity-50">
-                            <Link size={25}/>
+                            <Link size={25} color="#201D3A"/>
                             <a href='https://linke-tree-v2-obhj3ev45-aristoteles-py.vercel.app/'>
                                 /Link's
                             </a>
