@@ -1,7 +1,8 @@
 import { FormEvent, useState } from "react"
 import { ImgPerfil } from "./ImgPerfil"
-import { XCircle } from "phosphor-react"
+import { Star, XCircle } from "phosphor-react"
 import { api } from "../services/api"
+import { FeedbackStar } from "./FeedbackStar"
 
 
 function Form(){
@@ -12,6 +13,9 @@ function Form(){
     const [contador, setContador] = useState(0)
     const [errorForm, setErrorForm] = useState('')
     const [enviado, setEnviado] = useState(false)
+    const [quantidadeStars, setQuantidadeStars] = useState(0)
+
+    const Stars:number[] = [...(new Array(6)).keys() as any]
 
     const capturandoEventoDoTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const inputValue = event.target.value;
@@ -53,53 +57,30 @@ function Form(){
         <form 
           onSubmit={Enviar} 
           action=""
-          className="w-full mt-2 px-5 flex flex-col gap-5 items-center"
+          className="w-full flex flex-col justify-center items-center"
         >
-          
-          <div className={`fixed ${errorForm.length > 0 ? 'bg-red-800': 'bg-green-500'}  w-fit h-11 pr-2 rounded-l-xl top-3  flex  right-0 gap-2 items-center overflow-hidden ${enviado == false ? 'opacity-0 hidden':'opacity-100 '} transition-opacity shadow-xl text-white`}>
+          <div className={`flex flex-col justify-center text-center gap-1`}>
 
-            <button className={`${errorForm.length > 0 ? 'bg-red-800': 'bg-green-800'} h-full w-8 flex items-center justify-center shadow-xl`}
-              onClick={() => setEnviado(false)}
-              >
-              <XCircle size={20}/>
-            </button>
-
-            {errorForm.length > 0 ? errorForm :'Mensagem Enviada com sucesso!'}
-          </div>
-
-          <div className={`flex flex-col w-full mt-5 gap-2  p-4 rounded-lg bg-white`}>
-            <div className="flex">
-              <h1 className="m-auto font-bold text-2xl spacing tracking-widest		">
-                Formulario de visitante
-              </h1>
-              <a className="hover:opacity-50" href="/visita">
-                <XCircle size={35} />
-              </a>
-            </div>
-      
-            <label className="pl-2 font-semibold text-lg">
-                Nome
+            <label className="">
+              Olá, qual seu nome ?
             </label>
-      
             <input 
-              className="py-2 px-2 rounded-lg mb-2 bg-gray-300 shadow-innerShadow"
+              className="text-center w-[400px] m-auto bg-transparent border border-black rounded-lg"
               maxLength={30}
               type="text" 
               value={nome}
               onChange={(e) => setNome(e.target.value)}
               placeholder="Seu nome completo"
             />
-  
-              <label className="pl-2 font-semibold text-lg">
-                      Foto de perfil
-                  </label>
-              <div className="w-full bg-gray-300 py-3 flex flex-col items-center rounded-2xl shadow-innerShadow">
-        
-                  <div className="w-full h-fit  flex-wrap gap-1 flex justify-center">
+              <label className="mt-2">
+                Escolher uma foto de perfil?
+              </label>
+              <div className="">
+                  <div className="">
                       <button
                         type="button"
                         onClick={() => setImg('https://i.pinimg.com/564x/b6/7d/84/b67d84c12d66ceeed13b06c941e1e606.jpg')}
-                        className="h-[80px] w-[80px] rounded-full"
+
                       >
                           <ImgPerfil click={img} img="https://i.pinimg.com/564x/b6/7d/84/b67d84c12d66ceeed13b06c941e1e606.jpg" />
                       </button>
@@ -107,7 +88,7 @@ function Form(){
                       <button
                         type="button"
                         onClick={() => setImg('https://i.pinimg.com/564x/d4/59/3f/d4593f0740ac88633474f09a287dfa66.jpg')}
-                        className="h-[80px] w-[80px] rounded-full"
+
                       >
                           <ImgPerfil click={img} img="https://i.pinimg.com/564x/d4/59/3f/d4593f0740ac88633474f09a287dfa66.jpg" />
                       </button>
@@ -115,7 +96,7 @@ function Form(){
                       <button
                         type="button"
                         onClick={() => setImg('https://i.pinimg.com/564x/73/f6/a0/73f6a0d4f28aa17e0c48e90547bff86b.jpg')}
-                        className="h-[80px] w-[80px] rounded-full"
+
                       >
                           <ImgPerfil click={img} img="https://i.pinimg.com/564x/73/f6/a0/73f6a0d4f28aa17e0c48e90547bff86b.jpg" />
                       </button>
@@ -123,7 +104,7 @@ function Form(){
                       <button
                         type="button"
                         onClick={() => setImg('https://i.pinimg.com/564x/ef/ca/61/efca61ec9e779618f8d97e45ac18006e.jpg')}
-                        className="h-[80px] w-[80px] rounded-full"
+
                       >
                           <ImgPerfil click={img} img="https://i.pinimg.com/564x/ef/ca/61/efca61ec9e779618f8d97e45ac18006e.jpg" />
                       </button>
@@ -131,7 +112,7 @@ function Form(){
                       <button
                         type="button"
                         onClick={() => setImg('https://i.pinimg.com/564x/0a/aa/9e/0aaa9eb4b6beaad7a033ddc508278011.jpg')}
-                        className="h-[80px] w-[80px] rounded-full"
+
                       >
                           <ImgPerfil click={img} img="https://i.pinimg.com/564x/0a/aa/9e/0aaa9eb4b6beaad7a033ddc508278011.jpg" />
                       </button>
@@ -139,7 +120,7 @@ function Form(){
                       <button
                         type="button"
                         onClick={() => setImg('https://i.pinimg.com/564x/6f/58/98/6f5898a11d65e63faa5487dbd3e44066.jpg')}
-                        className="h-[80px] w-[80px] rounded-full"
+
                       >
                           <ImgPerfil click={img} img="https://i.pinimg.com/564x/6f/58/98/6f5898a11d65e63faa5487dbd3e44066.jpg" />
                       </button>
@@ -147,35 +128,36 @@ function Form(){
                     <button
                       type="button"
                       onClick={() => setImg('https://i.pinimg.com/originals/3b/69/a4/3b69a450470e5da95379aee564bfb7c1.gif')}
-                      className="h-[80px] w-[80px] rounded-full"
                     >
                         <ImgPerfil click={img} img="https://i.pinimg.com/originals/3b/69/a4/3b69a450470e5da95379aee564bfb7c1.gif" />
                     </button>
                 </div>
             </div>
 
-            <label className="pl-2 font-semibold text-lg">
-                Mensagem
+            <label className="mt-2">
+              Qual sua mensagem para o mural de visitante ? 
             </label>
 
             <textarea 
               placeholder="Sua mensagem..."
-              className="py-1 px-2 bg-gray-300 rounded-lg w-full h-[100px] resize-none shadow-innerShadow"
-              maxLength={200}
+              className="text-center w-[600px] h-[30px] m-auto bg-transparent border border-black rounded-lg"
+              maxLength={40}
               value={mensagem}
               onChange={capturandoEventoDoTextArea}
             />
-            <p className="w-full px-1 flex gap-1 ">
-                Caractéres restando:
-                <p className={`${contador > 150 ? 'text-red-500': '' }`}>
-                    {contador} / 200
-                </p>
-            </p>
+            <label className="mt-2">
+              Quantas estrelas meu projeto merece ?
+            </label>
+            <div className="flex gap-1 w-full justify-center">
+              {Stars.map(star => {
+                return <FeedbackStar isActive={star <= quantidadeStars} onClick={() => setQuantidadeStars(star)} key={star}/>
+              })}
+            </div>
           </div>
-          <div className="w-[50%] m-auto bg-white rounded-lg shadow-innerShadow">
+          <div className="">
               <button
                 onClick={() => setEnviado(true)}
-                className="flex justify-center items-center w-full h-full py-2 text-base font-semibold hover:opacity-50"
+                className=""
                 type="submit">
                   Enviar formulario
               </button>
