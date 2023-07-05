@@ -150,11 +150,11 @@ function Form(){
             </label>
             <div className="flex gap-1 w-full justify-center">
               {Stars.map(star => {
-                return <FeedbackStar isActive={star <= quantidadeStars} onClick={() => setQuantidadeStars(star)} key={star}/>
+                return <FeedbackStar isActive={star <= quantidadeStars} button={true} onClick={() => setQuantidadeStars(star)} key={star}/>
               })}
             </div>
           </div>
-          <div className="">
+          <div className="py-1 px-2 bg-roxoPR text-white my-5 rounded-lg text-lg">
               <button
                 onClick={() => setEnviado(true)}
                 className=""
