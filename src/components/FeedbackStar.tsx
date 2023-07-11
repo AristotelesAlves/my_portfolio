@@ -10,7 +10,7 @@ export function FeedbackStar(props: Istar){
     return( 
         <>
             {props.button ? 
-                <button onClick={props.onClick}>
+                <button type="button" onClick={props.onClick}>
                     <Star size={30} weight="fill" color={props.isActive ? "orange" : "#ccc"}/>
                 </button>
                 :

@@ -6,7 +6,9 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
 interface Ipost{
+    id: string;
     img: string;
+    title: string;
     bio: string;
     code: string;
     demo: string;
@@ -60,6 +62,7 @@ export function Post(){
                                             {heart == false ? <Heart size={30} /> : <Heart size={30} color="#d00606" weight="fill" />}
                                         </button>
                                     </div>
+                                    <strong>{r.title}</strong>
                                     <p className="">
                                         {r.bio}
                                     </p>

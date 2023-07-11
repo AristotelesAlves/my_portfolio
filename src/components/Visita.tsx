@@ -7,12 +7,11 @@ import { Form } from "./Form"
 import { FeedbackStar } from "./FeedbackStar"
 
 interface Icomment{
-    id: string
-    name: string
-    image: string
-    instagram: string
-    message: string
-    data: string
+    id: string;
+    name: string;
+    image: string;
+    star: number;
+    data: string;
 }
 
 function Visita(){
@@ -65,7 +64,7 @@ function Visita(){
 
             <div className="bg-white rounded-xl w-full px-10 py-5  shadow-innerShadow  gap-5 justify-center flex flex-col items-center">
                 
-                <div className="h-fit w-[80%] shadow-xl bg-slate-100 rounded-xl">
+                <div className="h-fit w-[80%] shadow-xl bg-white rounded-xl">
                     <button className="flex w-full text-left"
                       onClick={() => setOpen(!open)}
                     > 
@@ -84,7 +83,7 @@ function Visita(){
                                 Basta preencher um formulário {open == false ? "simples clicando aqui!”" : "abaixo!”"}
                             </p>
                         </div>
-                        <div className="flex flex-1 h-[100px] items-center justify-end pr-10">
+                        <div className="flex flex-1 h-[100px] items-center justify-end pr-10 w-full">
                             {open == false ? <CaretDown size={30}/>: <CaretUp size={30}/>}
                         </div>
                     </button>
@@ -95,28 +94,25 @@ function Visita(){
                 <div className="h-full w-[80%] flex flex-wrap justify-center gap-10">
                     {comment.map((comentario) => {
                         return (
-                            <div className="flex h-fit w-[300px] shadow-xl bg-slate-100 rounded-xl overflow-hidden">
-                                <img className="h-[90px] w-[80px]" 
+                            <div className="flex h-fit w-[400px] shadow-xl bg-white rounded-xl overflow-hidden">
+                                <img className="h-[80px] w-[80px]" 
                                   src={comentario.image}  
                                   alt=""
                                 />
                                 <div className="h-full flex flex-col justify-center w-full m-auto ml-3">
+                                    <p className="mb-1 font-bold text-xl ">
+                                        {comentario.name}
+                                    </p>
                                     <div className="flex">
                                         {Stars.map(star => 
                                                 <FeedbackStar 
                                                     button={false} 
-                                                    isActive={star <= 4} 
+                                                    isActive={star <= comentario.star} 
                                                     onClick={() => ' '}
                                                 />
                                             )
                                         }
                                     </div>
-                                    <p className="ml-1 font-semibold ">
-                                        {comentario.name}
-                                    </p>
-                                    <p className="text-sm font-light">
-                                        “{comentario.message}”
-                                    </p>
                                 </div>
                             </div>
                         )
@@ -136,30 +132,6 @@ function Visita(){
                         size={25}/>
                     </button>
                 </nav>
-
-
-
-
-                {/* <div className="flex flex-col gap-5 w-full">
-                {comment.length > 0 ? (
-                    comment.map(r => {
-                        return(
-                            <Comentarios data={r.data} image={r.image} message={r.message} name={r.name} key={r.id}/>
-                        )
-                    })):(<LoadingComentarios/>
-                    )
-                }
-                </div>
-                    
-                </div>
-
-                <div className="w-[50%] m-auto bg-white rounded-lg shadow-innerShadow">
-                    <a href="/form"
-                        className="flex justify-center items-center w-full h-full py-2 text-base font-semibold hover:opacity-50">
-                            Deixe sua mensagem!
-                    </a>
-                </div>
-            */}
             </div>  
         </section>
     )

@@ -9,69 +9,54 @@ function Form(){
 
     const [img, setImg] = useState(' ')
     const [nome, setNome] = useState('')
-    const [mensagem, setMensagem] = useState('')
-    const [contador, setContador] = useState(0)
-    const [errorForm, setErrorForm] = useState('')
-    const [enviado, setEnviado] = useState(false)
+    const [erro, setError] = useState('')
     const [quantidadeStars, setQuantidadeStars] = useState(0)
 
     const Stars:number[] = [...(new Array(6)).keys() as any]
-
-    const capturandoEventoDoTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        const inputValue = event.target.value;
-        setMensagem(inputValue);
-        setContador(mensagem.length);
-      };
 
     function Enviar(e: FormEvent){
         e.preventDefault();
 
         if(nome.length == 0){
-          setErrorForm('Digite seu nome!')
+          setError('Digite seu nome!')
           return
         }
         if(img.length == 0){
-          setErrorForm('Escolha uma foto de perfil!')
+          setError('Escolha uma foto de perfil!')
           return
         }
-        if(mensagem.length == 0){
-          setErrorForm('Escreva uma mensagem!')
-          return
-        }
-        setErrorForm('')
+        
+        setError('')
 
+        console.log()
         api.post('/comment', {
           name: nome,
-          message: mensagem,
           image: img,
-          instagram: ''
+          star: quantidadeStars
         })
-
-        setImg('')
-        setNome('')
-        setMensagem('')
-        setContador(0)
     }
 
     return(
         <form 
           onSubmit={Enviar} 
           action=""
-          className="w-full flex flex-col justify-center items-center"
+          className="w-full flex flex-col justify-center items-center bg-white rounded-b-2xl mt-3"
         >
           <div className={`flex flex-col justify-center text-center gap-1`}>
 
-            <label className="">
-              Olá, qual seu nome ?
-            </label>
-            <input 
-              className="text-center w-[400px] m-auto bg-transparent border border-black rounded-lg"
-              maxLength={30}
-              type="text" 
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-              placeholder="Seu nome completo"
-            />
+            <div className="flex gap-1 h-fit items-center border-b border-zinc-400">
+              <label className="bg-white flex text-left text-lg">
+                Nome:
+              </label>
+              <input 
+                className="w-full text-sm mt-1"
+                maxLength={30}
+                type="text" 
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                placeholder="Seu nome completo"
+              />
+            </div>
               <label className="mt-2">
                 Escolher uma foto de perfil?
               </label>
@@ -133,18 +118,6 @@ function Form(){
                     </button>
                 </div>
             </div>
-
-            <label className="mt-2">
-              Qual sua mensagem para o mural de visitante ? 
-            </label>
-
-            <textarea 
-              placeholder="Sua mensagem..."
-              className="text-center w-[600px] h-[30px] m-auto bg-transparent border border-black rounded-lg"
-              maxLength={40}
-              value={mensagem}
-              onChange={capturandoEventoDoTextArea}
-            />
             <label className="mt-2">
               Quantas estrelas meu projeto merece ?
             </label>
@@ -156,10 +129,9 @@ function Form(){
           </div>
           <div className="py-1 px-2 bg-roxoPR text-white my-5 rounded-lg text-lg">
               <button
-                onClick={() => setEnviado(true)}
                 className=""
                 type="submit">
-                  Enviar formulario
+                  Enviar feedback
               </button>
           </div>
         </form>
