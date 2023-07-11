@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react"
 import { ImgPerfil } from "./ImgPerfil"
-import { Star, XCircle } from "phosphor-react"
 import { api } from "../services/api"
 import { FeedbackStar } from "./FeedbackStar"
 

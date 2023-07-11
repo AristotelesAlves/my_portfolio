@@ -45,10 +45,6 @@ export function Header(){
                             <Cake size={25}/>
                             27 Setembro
                         </li>
-                        {/* <li className="flex h-fit items-center gap-1">
-                            <Calendar size={25}/>
-                            Inscreveu-se em jan 2023
-                        </li> */}
                     </ul>
                 </div>
             </section>

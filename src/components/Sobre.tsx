@@ -1,4 +1,4 @@
-import { Download, DownloadSimple } from "phosphor-react"
+import { DownloadSimple } from "phosphor-react"
 import curriculo from '../pdf/Curriculo - Aristóteles Alves.pdf'
 
 function Sobre(){

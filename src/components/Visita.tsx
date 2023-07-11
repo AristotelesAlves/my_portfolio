@@ -1,7 +1,6 @@
 import { CaretDown, CaretLeft, CaretRight, CaretUp, Star } from "phosphor-react"
 import { useEffect, useState } from "react"
 
-import { Comentarios } from "./Comentarios"
 import { api } from "../services/api"
 import { Form } from "./Form"
 import { FeedbackStar } from "./FeedbackStar"
