@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import { GithubLogo, InstagramLogo, LinkedinLogo, WhatsappLogo } from "phosphor-react";
+import { ArrowDown, GithubLogo, InstagramLogo, LinkedinLogo, Mouse, WhatsappLogo } from "phosphor-react";
 import Logoname from "../components/3D/Logoname";
 import Terra3D from "../components/3D/Terra3D";
 import { Header } from "../components/Header";
@@ -31,9 +31,12 @@ function Home(){
             <Header/>
             {loading == true ? <Loading/> : null}
 
-            <div className="h-screen -mt-11 w-full flex items-center justify-center flex-col ">
+            <div className="h-screen -mt-11 w-full flex items-center justify-center flex-col gap-10 ">
                 <div>
                     <Logoname/>
+                </div>
+                <div className="animate-bounce text-white bottom-10 right-10 z-10 fixed">
+                    <ArrowDown size={35}/>
                 </div>
             </div>
             <div className="h-screen w-full flex items-center justify-center ">
