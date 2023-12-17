@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^0.9.523",
     "axios": "^1.4.0",
     "date-fns": "^2.30.0",
     "phosphor-react": "^1.4.1",

@@ -1,36 +1,18 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Home } from './pages/Home'
-import { Post } from './components/Post'
-import { Visita } from './components/Visita'
-import { ErroPage } from './components/ErroPage'
-
-import { Sobre } from './components/Sobre'
-import { Form } from './components/Form'
+import { ErroPage } from './pages/ErroPage'
 
 const router = createBrowserRouter([
     { 
         path: '/',
         element: <Home/>,
         errorElement: <ErroPage/>,
-        children:[
-            {
-                path: "/",
-                element: <Post/>
-            },
-            {
-                path: "/form",
-                element: <Form/>
-            },
-            {
-                path: "/visita",
-                element: <Visita/>,            
-            },
-            {
-                path: "/sobre",
-                element: <Sobre/>
-            },
-            
-        ]
+        // children:[
+        //     {
+        //         path: "/",
+        //         element: <Post/>
+        //     },
+        // ]
     },
 ])
 
