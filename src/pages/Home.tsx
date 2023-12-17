@@ -4,29 +4,43 @@ import Logoname from "../components/3D/Logoname";
 import Terra3D from "../components/3D/Terra3D";
 import { Header } from "../components/Header";
 import Setup from "../components/3D/Setup";
+import { useEffect, useState } from "react";
+import { Loading } from "../components/Loading";
 
 
 
 function Home(){
 
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            await new Promise(resolve => setTimeout(resolve, 10000));
+            setLoading(!loading);
+          } catch (error) {
+            console.error('Erro ao carregar dados:', error);
+          }
+        };
+
+        fetchData();
+    }, []);
+
     return(
         <div className="bg-zinc-800 w-full flex items-center justify-center flex-col ">
             <Header/>
+            {loading == true ? <Loading/> : null}
+
             <div className="h-screen -mt-11 w-full flex items-center justify-center flex-col ">
                 <div>
                     <Logoname/>
                 </div>
             </div>
-            <div className="h-screen w-full flex items-center justify-center flex-col ">
+            <div className="h-screen w-full flex items-center justify-center ">
                 <div>
-                    <Terra3D/>
+                    <Setup/>
                 </div>
-                <div>
-
-                </div>
-            </div>
-            <div className="h-screen w-full flex items-center justify-center flex-col ">
-                <div>
+                <div className="text-white">
                     <h1>Uma representação em miniatuara do meu setup</h1>
                     <div>
                         <h2>Meu PC principal:</h2>
@@ -41,9 +55,7 @@ function Home(){
                         </p>
                     </div>
                 </div>
-                <div>
-                    <Setup/>
-                </div>
+                
             </div>
         </div>
     )
