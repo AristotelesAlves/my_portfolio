@@ -58,7 +58,7 @@ function Home(){
                         </p>
                     </div>
                 </div>
-                
+                <Terra3D/>
             </div>
         </div>
     )
