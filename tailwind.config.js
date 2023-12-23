@@ -8,8 +8,8 @@ export default {
     extend: {
       colors: {
         'roxoPR':'#201D3A',
-        'linear_01': '#201D3A',
-        'linear_02': '#201D3A',
+        'linear_01': '#373737',
+        'linear_02': '#141414',
       },
       backgroundImage:{
         'banner': "url('./img/db-space-animation.gif')",
@@ -19,8 +19,8 @@ export default {
         'buttonShadow':'0px 1px 0px 0px rgba(0, 0, 0, 0.25)'
       },
       textShadow: {
-        'default': '3px 3px 210x rgba(0, 0, 0, 0.50)' // Aqui você pode personalizar a sombra do texto
-      }
+        'default': '3px 3px 210x rgba(0, 0, 0, 0.50)'
+      },
     },
   },
   plugins: [],

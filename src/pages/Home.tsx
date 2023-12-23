@@ -6,6 +6,7 @@ import { Header } from "../components/Header";
 import Setup from "../components/3D/Setup";
 import { useEffect, useState } from "react";
 import { Loading } from "../components/Loading";
+import { ContainerImage } from "../components/ContainerImage";
 
 
 
@@ -27,38 +28,26 @@ function Home(){
     }, []);
 
     return(
-        <div className="bg-zinc-800 w-full flex items-center justify-center flex-col ">
+        <div className=" flex items-center justify-center flex-col ">
             <Header/>
-            {loading == true ? <Loading/> : null}
-
-            <div className="h-screen -mt-11 w-full flex items-center justify-center flex-col gap-10 ">
-                <div>
-                    <Logoname/>
-                </div>
-                <div className="animate-bounce text-white bottom-10 right-10 z-10 fixed">
-                    <ArrowDown size={35}/>
-                </div>
+            <div className="w-full mt-2 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black w-full">
+                <Logoname/>
             </div>
-            <div className="h-screen w-full flex items-center justify-center ">
-                <div>
-                    <Setup/>
-                </div>
-                <div className="text-white">
-                    <h1>Uma representação em miniatuara do meu setup</h1>
+            <div>
+                <ContainerImage/>
+                <ContainerImage/>
+                
+                <div>   
+                    <div className="">
+                        <img 
+                          src="" 
+                          alt=""
+                        />
+                    </div>
                     <div>
-                        <h2>Meu PC principal:</h2>
-                        <p>
-                            Monitor 29" ultrawide LG
-                        </p>
-                        <p>
-                            Gabinete Redragon
-                        </p>
-                        <p>
-                            Placa mãe
-                        </p>
+
                     </div>
                 </div>
-                <Terra3D/>
             </div>
         </div>
     )
