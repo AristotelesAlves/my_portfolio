@@ -7,13 +7,14 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home/>,
         errorElement: <ErroPage/>,
-        // children:[
-        //     {
-        //         path: "/",
-        //         element: <Post/>
-        //     },
-        // ]
     },
+    {
+        path: '/link-tree',
+        element: <div>
+            <h1>Link-tree</h1>
+        </div>,
+        errorElement: <ErroPage/>
+    }
 ])
 
 export { router }
