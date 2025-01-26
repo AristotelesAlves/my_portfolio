@@ -74,7 +74,7 @@ export function Home() {
               sempre buscando unir inovação e desempenho.
             </p>
           </div>
-          <div className="flex md:justify-start justify-center w-full gap-2 py-2 z-20">
+          <div className="flex md:justify-start justify-center w-full gap-4 py-2 z-20">
             <button onClick={alert} className="p-2 border flex items-center gap-1 border-green-400 hover:bg-green-400 font-semibold transition-colors duration-150 rounded-lg text-white">
               <PaperPlaneTilt size={23}/>
               <span>
