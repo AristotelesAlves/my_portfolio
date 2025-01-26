@@ -51,7 +51,7 @@ export function Home() {
         <div className="flex flex-col gap-2 items-start">  
           <div className="text-white flex gap-10 md:flex-row flex-col justify-center items-center w-fit">
             <img 
-            className="w-36 h-36 rounded-full shadow-lg"
+            className="w-36 h-36 rounded-full shadow-lg z-20"
             src="https://i.pinimg.com/736x/ea/26/12/ea26123465f954e0aa06484e158e9baf.jpg" 
             alt="foto de perfil" />
             <div className="flex flex-col">
