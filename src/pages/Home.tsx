@@ -4,9 +4,9 @@ import Skills from "../components/ui/skills";
 
 export function Home() {
   return (
-    <div className="w-full bg-[#1C1C1C] relative flex flex-col items-center justify-center ">
+    <body className="w-full bg-[#1C1C1C] relative flex flex-col items-center justify-center scroll-smooth">
       <NavBar />
-      <div className="h-screen w-full relative flex flex-col">
+      <div id="#sobre" className="h-screen w-full relative flex flex-col">
         <section className="h-full flex flex-col items-center justify-center pb-20">
           <div className="flex flex-col gap-2 items-start">
             <div className="text-white flex gap-10 md:flex-row flex-col justify-center items-center w-fit">
@@ -51,7 +51,7 @@ export function Home() {
             </div>
             <div className="flex md:justify-start justify-center w-full gap-4 py-2 z-20">
               <a
-                href="https://api.whatsapp.com/send?phone=5587981152947&text=Olá, tudo bem ? "
+                href="#contato"
                 className="p-2 border flex items-center gap-1 border-green-400 hover:bg-green-400 font-semibold transition-colors duration-150 rounded-lg text-white"
               >
                 <PaperPlaneTilt size={23} />
@@ -147,10 +147,8 @@ export function Home() {
             </div>
           </div>
         </div>
-      </div>
-     
-      <div
-        id="outra coisa"
+      </div> 
+      <div id="contato"
         className="h-full w-full text-white flex items-center justify-center flex-col gap-3 py-10">
         <div className="w-full text-center">
           <h1 className="text-4xl font-semibold text-white">Entre em contato</h1>
@@ -159,22 +157,21 @@ export function Home() {
           </p>
         </div>
         <div className="flex gap-2 ">
-          <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="">
+          <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="https://api.whatsapp.com/send?phone=5587981152947&text=Olá, tudo bem ? ">
             <WhatsappLogo size={30}/>
           </a>
-          <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="">
+          <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="https://www.instagram.com/aristoteles269/">
             <InstagramLogo size={30}/>
           </a>
-          <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="">
+          <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="https://www.linkedin.com/in/aristoteles-alves-ab8089226/">
             <LinkedinLogo size={30}/>
           </a>
-          <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="">
+          <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="https://github.com/AristotelesAlves">
             <GithubLogo size={30}/>
           </a>
         </div>
 
         </div>
-
-    </div>
+    </body>
   );
 }
