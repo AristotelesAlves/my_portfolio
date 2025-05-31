@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { ErroPage } from "./pages/ErroPage";
+import LinkTree from "./pages/link-tree/LinkTree";
 
 const router = createBrowserRouter([
   {
@@ -10,11 +11,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/link-tree",
-    element: (
-      <div>
-        <h1>Link-tree</h1>
-      </div>
-    ),
+    element: <LinkTree />,
     errorElement: <ErroPage />,
   },
 ]);

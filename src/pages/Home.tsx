@@ -1,71 +1,41 @@
-import { Cards, GithubLogo, InstagramLogo, LinkedinLogo, PaperPlaneTilt, WhatsappLogo } from "phosphor-react";
-import NavBar from "../components/layout/nav-bar";
-import Skills from "../components/ui/skills";
+import { Cards, GithubLogo, InstagramLogo, LinkedinLogo, WhatsappLogo } from "phosphor-react";
 
 export function Home() {
   return (
-    <body className="w-full bg-[#1C1C1C] relative flex flex-col items-center justify-center scroll-smooth">
-      <NavBar />
+    <body className="w-full bg-black relative flex flex-col items-center justify-center scroll-smooth">
+      <div className="w-full sticky top-4 left-0 flex items-center justify-center z-50">
+        <ul className="flex px-10 py-4 bg-black border-zinc-800 border-2 rounded-2xl text-white gap-10">
+          <li>
+            <a className="px-4 py-2 hover:bg-zinc-800 rounded-full" href="#">
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a className="px-4 py-2 hover:bg-zinc-800 rounded-full" href="#">
+              Sobre
+            </a>
+
+          </li>
+          <li>
+            <a className="px-4 py-2 hover:bg-zinc-800 rounded-full" href="#">
+              Habilidades
+            </a>
+
+          </li>
+          <li>
+            <a className="px-4 py-2 hover:bg-zinc-800 rounded-full" href="#">
+              Projetos
+            </a>
+
+          </li>
+        </ul>
+      </div>
       <div id="#sobre" className="h-screen w-full relative flex flex-col">
         <section className="h-full flex flex-col items-center justify-center pb-20">
-          <div className="flex flex-col gap-2 items-start">
-            <div className="text-white flex gap-10 md:flex-row flex-col justify-center items-center w-fit">
-              <img
-                className="w-36 h-36 rounded-full shadow-lg z-20"
-                src="https://avatars.githubusercontent.com/u/103201579?v=4"
-                alt="foto de perfil"
-              />
-              <div className="flex flex-col">
-                <h2 className="text-4xl w-full md:text-start text-center">
-                  Olá, eu me chamo 
-                  <span className="text-green-400 font-semibold">
-                    Aristóteles
-                  </span>
-                  ✨
-                </h2>
-                <h2 className="text-4xl w-full md:text-start text-center">
-                  Um 
-                  <span className="text-green-400 font-semibold">
-                    desenvolvedor de software
-                  </span>
-                </h2>
-              </div>
-            </div>
-            <div className="md:px-0 px-3 z-20">
-              <p className="text-gray-300  w-full md:text-start md:text-base text-sm text-center">
-                Me chamo Aristóteles, mas, em vez de buscar a essência do ser,
-                busco a melhor solução para cada problema.
-              </p>
-              <p className="text-gray-300  w-full md:text-start md:text-base text-sm text-center">
-                Apaixonado por tecnologia e inovação, estou sempre explorando
-                novas ideias e desafios.
-              </p>
-              <p className="text-gray-300  w-full md:text-start md:text-base text-sm text-center">
-                Atualmente, curso Sistemas de Informação na{" "}
-                <a className="text-green-400" href="https://unifapce.edu.br/">
-                  UNIFAPCE
-                </a>{" "}
-                e sigo aprendendo para evoluir e contribuir no mundo da
-                tecnologia.
-              </p>
-            </div>
-            <div className="flex md:justify-start justify-center w-full gap-4 py-2 z-20">
-              <a
-                href="#contato"
-                className="p-2 border flex items-center gap-1 border-green-400 hover:bg-green-400 font-semibold transition-colors duration-150 rounded-lg text-white"
-              >
-                <PaperPlaneTilt size={23} />
-                <span>Entre em contato</span>
-              </a>
-              <a
-                href="#projetos"
-                className="p-2 border flex items-center gap-1 border-green-400 hover:bg-green-400 font-semibold transition-colors duration-150 rounded-lg text-white"
-              >
-                <Cards size={23} />
-                <span>Meus projetos</span>
-              </a>
-            </div>
-          </div>
+          <h1 className="text-center text-white text-[60px] w-[700px] font-mono">
+            Criando experiências web bonitas e funcionais
+            Olá, sou Avinash Singh, um desenvolvedor full stack apaixonado por criar aplicativos de alto desempenho, fáceis de usar e escaláveis.
+          </h1>
         </section>
         <img
           className="w-full h-full object-cover absolute left-0 top-0 z-0"
@@ -73,16 +43,7 @@ export function Home() {
           alt=""
         />
       </div>
-      <div id="habilidades" className="h-full w-full pt-20">
-        <div className="w-full text-center">
-          <h1 className="text-4xl font-semibold text-white">Habilidades</h1>
-          <p className="text-gray-400 ">
-            Algumas das minhas habilidades como desenvolvedor, mas sempre aberto
-            a novos desafios e aprendizados!
-          </p>
-        </div>
-        <Skills />
-      </div>
+
       <div id="projetos" className="w-full pt-20">
         <div className="flex flex-col justify-center items-center gap-20">
           <div className="w-full text-center">
@@ -147,31 +108,31 @@ export function Home() {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       <div id="contato"
         className="h-full w-full text-white flex items-center justify-center flex-col gap-3 py-10">
         <div className="w-full text-center">
           <h1 className="text-4xl font-semibold text-white">Entre em contato</h1>
           <p className="text-gray-400 ">
-            Algumas das minhas redes sociais 
+            Algumas das minhas redes sociais
           </p>
         </div>
         <div className="flex gap-2 ">
           <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="https://api.whatsapp.com/send?phone=5587981152947&text=Olá, tudo bem ? ">
-            <WhatsappLogo size={30}/>
+            <WhatsappLogo size={30} />
           </a>
           <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="https://www.instagram.com/aristoteles269/">
-            <InstagramLogo size={30}/>
+            <InstagramLogo size={30} />
           </a>
           <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="https://www.linkedin.com/in/aristoteles-alves-ab8089226/">
-            <LinkedinLogo size={30}/>
+            <LinkedinLogo size={30} />
           </a>
           <a className="p-2 rounded-xl hover:bg-green-600 transition-colors duration-200" href="https://github.com/AristotelesAlves">
-            <GithubLogo size={30}/>
+            <GithubLogo size={30} />
           </a>
         </div>
 
-        </div>
+      </div>
     </body>
   );
 }
