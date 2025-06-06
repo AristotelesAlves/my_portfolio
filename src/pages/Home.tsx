@@ -2,8 +2,41 @@ import { Cards, GithubLogo, InstagramLogo, LinkedinLogo, WhatsappLogo } from "ph
 import { Header } from "../components/Header";
 import { ArrowDown } from "lucide-react";
 import ContributionGrid from "../hooks/use-contribution-graph";
+import Card from "../components/Card";
+import LogoCard from "../components/LogoCard";
 
 export function Home() {
+  const skills = [
+    'react',
+    'nextjs',
+    'typescript',
+    'tailwindcss',
+    'java',
+    'kotlin',
+    'androidstudio',
+    'php',
+    'vue',
+    'devops',
+    'docker',
+    'kubernetes',
+    'nodejs',
+    'javascript',
+    'python',
+    'golang',
+    'machinelearning',
+    'nestjs',
+    'vercel',
+    'postgresql',
+    'prisma',
+    'zod',
+    'aws',
+    'expo',
+    'linux',
+    'git',
+    'threejs',
+    'mysql',
+  ];
+
   return (
     <body className="w-full  bg-black relative flex flex-col items-center justify-center ">
       <Header />
@@ -75,38 +108,38 @@ export function Home() {
           </div>
           {/* horarios */}
           <div className="md:col-span-2 row-span-2 lg:col-span-1 border-2 items-center  border-[#303030] rounded-xl overflow-hidden">
-          <div className="flex items-center justify-center w-full h-full flex-col p-4">
-          <h2 className="text-center pb-2 font-semibold text-lg">
-              Sou flexível na comunicação em diferentes fusos horários
-            </h2>
-            <div className="flex gap-4 items-center justify-center w-full text-white">
-              <div className="px-2 py-1 border-2 border-[#303030] rounded-lg flex items-end gap-1">
-                <span className="text-xs">PT</span>
-                <span className="text-sm">Portugual</span>
+            <div className="flex items-center justify-center w-full h-full flex-col p-4">
+              <h2 className="text-center pb-2 font-semibold text-lg">
+                Sou flexível na comunicação em diferentes fusos horários
+              </h2>
+              <div className="flex gap-4 items-center justify-center w-full text-white">
+                <div className="px-2 py-1 border-2 border-[#303030] rounded-lg flex items-end gap-1">
+                  <span className="text-xs">PT</span>
+                  <span className="text-sm">Portugual</span>
+                </div>
+                <div className="px-2 py-1 border-2 border-green-600 rounded-lg flex items-end gap-1">
+                  <span className="text-xs">BR</span>
+                  <span className="text-sm">Brasil</span>
+                </div>
+                <div className="px-2 py-1 border-2 border-[#303030] rounded-lg flex items-end gap-1">
+                  <span className="text-xs">US</span>
+                  <span className="text-sm">USA</span>
+                </div>
               </div>
-              <div className="px-2 py-1 border-2 border-green-600 rounded-lg flex items-end gap-1">
-                <span className="text-xs">BR</span>
-                <span className="text-sm">Brasil</span>
-              </div>
-              <div className="px-2 py-1 border-2 border-[#303030] rounded-lg flex items-end gap-1">
-                <span className="text-xs">US</span>
-                <span className="text-sm">USA</span>
+              <img src="globo.png" alt="" />
+              <div className="flex flex-col gap-2 w-full items-start justify-normal text-white">
+                <div className="flex items-center gap-1">
+                  <hr className="w-14 h-1 bg-white" />
+                  <hr className="w-3 h-1 bg-white" />
+                  <hr className="w-3 h-1 bg-white" />
+                </div>
+                <strong className="text-xl">
+                  BRASIL
+                </strong>
+                <span>Latitude: -7.23389 </span>
+                <span>Longitude: -39.40889</span>
               </div>
             </div>
-            <img src="globo.png" alt="" />
-            <div className="flex flex-col gap-2 w-full items-start justify-normal text-white">
-              <div className="flex items-center gap-1">
-                <hr className="w-14 h-1 bg-white" />
-                <hr className="w-3 h-1 bg-white" />
-                <hr className="w-3 h-1 bg-white" />
-              </div>
-              <strong className="text-xl">
-                BRASIL
-              </strong>
-              <span>Latitude: -7.23389 </span>
-              <span>Longitude: -39.40889</span>
-            </div>
-              </div>
 
           </div>
           {/* propaganda */}
@@ -128,36 +161,54 @@ export function Home() {
           </div>
           {/* grafico git */}
           <div className="md:col-span-2 lg:col-span-2 border-2 p-2 border-[#303030] rounded-xl">
-          <strong className="text-lg font-semibold">
-    GitHub - Contribuições
-  </strong>
-  <div className="p-2">
-    <ContributionGrid />
-  </div>
-  <div className="mt-4">
-    <p className="text-sm text-[#A6A6A6]">
-      Este gráfico mostra minhas contribuições recentes no GitHub, incluindo commits, pull requests e interações em projetos open-source. Acompanhe meu trabalho e veja como estou ajudando a construir soluções digitais.
-    </p>
-    <a
-      href="https://github.com/aristotelesAlves"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-4 inline-block px-4 py-2 bg-black text-[#CCCCCC] hover:text-white hover:border-green-600 border-2 rounded-xl border-[#303030] transition-colors"
-    >
-      Visitar meu GitHub
-    </a>
-  </div>
+            <strong className="text-lg font-semibold">
+              GitHub - Contribuições
+            </strong>
+            <div className="p-2">
+              <ContributionGrid />
+            </div>
+            <div className="mt-4">
+              <p className="text-sm text-[#A6A6A6]">
+                Este gráfico mostra minhas contribuições recentes no GitHub, incluindo commits, pull requests e interações em projetos open-source. Acompanhe meu trabalho e veja como estou ajudando a construir soluções digitais.
+              </p>
+              <a
+                href="https://github.com/aristotelesAlves"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block px-4 py-2 bg-black text-[#CCCCCC] hover:text-white hover:border-green-600 border-2 rounded-xl border-[#303030] transition-colors"
+              >
+                Visitar meu GitHub
+              </a>
+            </div>
           </div>
         </div>
 
       </section>
 
       <section id="skills" className="h-screen w-full">
-
+        <div className="flex flex-col items-center justify-center h-full w-full p-4 md:p-8">
+          <h1 className="text-[#CCCCCC] text-3xl md:text-4xl font-bold text-center mt-10">
+            Habilidades
+          </h1>
+          <p className="text-[#A6A6A6] text-center max-w-2xl mx-auto mt-4">
+            Aqui estão algumas das tecnologias e ferramentas que utilizo no meu dia a dia como desenvolvedor Full Stack.
+          </p>
+          <div className="w-full flex gap-2 glex-wrap items-center justify-center mt-8 max-w-4xl flex-wrap mx-auto">
+            {skills.map((skill_, index) => (
+              <div key={index} className="">
+                <div className="h-10 w-fit p-2 rounded-xl border-2 border-[#303030] bg-black/50 backdrop-blur-md text-[#CCCCCC] flex items-center gap-2 hover:bg-black/70 transition-colors duration-200">
+                  <LogoCard logoName={skill_} width={20} height={20} />
+                  <span>{skill_.charAt(0).toUpperCase() + skill_.slice(1)}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
-
-      <section id="projects" className="h-screen w-full">
-
+      <section id="projects" className="h-screen w-full flex items-center justify-center text-[#CCCCCC] gap-4 flex-wrap p-4 md:p-8">
+        <Card />
+        <Card />
+        <Card />
       </section>
 
       <section id="contact" className="h-screen w-full">
