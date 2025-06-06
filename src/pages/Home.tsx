@@ -1,4 +1,4 @@
-
+import { Cards, GithubLogo, InstagramLogo, LinkedinLogo, WhatsappLogo } from "phosphor-react";
 import { Header } from "../components/Header";
 import { ArrowDown } from "lucide-react";
 import ContributionGrid from "../hooks/use-contribution-graph";
@@ -48,7 +48,7 @@ export function Home() {
         />
       </section>
 
-      <section id="about" className="h-screen w-full flex items-center justify-center text-[#CCCCCC]">
+      <section id="about" className="min:h-screen h-full w-full flex items-center justify-center text-[#CCCCCC]">
 
         <div className=" h-full w-full xl-[100%] lg-[100%] xl:w-[90%] 2xl:w-[60%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4 md:p-8 auto-rows-min">
           {/* sobre */}
